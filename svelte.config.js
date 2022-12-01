@@ -12,8 +12,8 @@ const config = {
 	},
 
 	csp: {
-		mode: 'hash',
-		directives: { 'script-src': ['self', 'vitals.vercel-insights.com'] }
+		mode: 'auto',
+		directives: { 'script-src': ['self'], 'default-src': ['self', 'vitals.vercel-analytics.com'] }
 	}
 };
 
