@@ -4,10 +4,9 @@
 	import { browser, dev } from '$app/environment';
 	import { page } from '$app/stores';
 
-	let analyticsId = import.meta.env.VERCEL_WEB_ANALYTICS_ID;
+	let analyticsId = import.meta.env.VITE_ANALYTICS;
 
 	$: if (browser && analyticsId) {
-		console.log('c');
 		webVitals({
 			path: $page.url.pathname,
 			params: $page.params,
