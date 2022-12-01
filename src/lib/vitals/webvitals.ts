@@ -45,13 +45,15 @@ function sendToAnalytics(
 	});
 	if (navigator.sendBeacon) {
 		navigator.sendBeacon(vitalsUrl, blob);
-	} else
+	} else {
 		fetch(vitalsUrl, {
 			body: blob,
 			method: 'POST',
 			credentials: 'omit',
 			keepalive: true
 		});
+		console.log('done: ', metric.name);
+	}
 }
 
 /**
