@@ -9,6 +9,11 @@ const config = {
 
 	kit: {
 		adapter: vercel({ edge: true, split: true })
+	},
+
+	csp: {
+		mode: 'hash',
+		directives: { 'script-src': ['self', 'vitals.vercel-insights.com'] }
 	}
 };
 
