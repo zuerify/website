@@ -9,6 +9,7 @@ specifiers:
   '@types/cookie': ^0.5.1
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
+  '@vercel/analytics': ^0.1.5
   '@vercel/edge': ^0.1.2
   autoprefixer: ^10.4.13
   eslint: ^8.28.0
@@ -24,10 +25,13 @@ specifiers:
   tslib: ^2.4.1
   typescript: ^4.9.3
   vite: ^3.2.4
+  web-vitals: ^3.1.0
 
 dependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.84
+  '@vercel/analytics': 0.1.5
   '@vercel/edge': 0.1.2
+  web-vitals: 3.1.0
 
 devDependencies:
   '@fontsource/fira-mono': 4.5.10
@@ -395,6 +399,12 @@ packages:
       '@typescript-eslint/types': 5.45.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.5:
+    resolution: {integrity: sha512-/k9N8Ea3Yc5A52GlkjzUEbi2vE/izClrOf++ryBkxEfrZM/OZwtHkdNw/QExZ1h/B67RCZLK7bCOnKKrhG7gTg==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dev: false
 
   /@vercel/edge/0.1.2:
     resolution: {integrity: sha512-NmoJ4JvF2/LxU8e8fRJcxaMrO9A8a2WmW6CO9GEomlDltlREyQTUWMk13BuCDDpXUPcSBDrZ2TJIoWiFQEI4sg==}
@@ -2263,6 +2273,10 @@ packages:
     dependencies:
       vite: 3.2.4
     dev: true
+
+  /web-vitals/3.1.0:
+    resolution: {integrity: sha512-zCeQ+bOjWjJbXv5ZL0r8Py3XP2doCQMZXNKlBGfUjPAVZWokApdeF/kFlK1peuKlCt8sL9TFkKzyXE9/cmNJQA==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

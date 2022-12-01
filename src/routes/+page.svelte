@@ -4,4 +4,4 @@
 	export let data: PageData;
 </script>
 
-<p>{data.geolocation}</p>
+<p>{data.test}</p>
