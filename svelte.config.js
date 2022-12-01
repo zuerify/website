@@ -8,12 +8,12 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: vercel({ edge: true, split: true })
-	},
+		adapter: vercel({ edge: true, split: true }),
 
-	csp: {
-		mode: 'auto',
-		directives: { 'script-src': ['self'], 'connect-src': ['vitals.vercel-analytics.com'] }
+		csp: {
+			mode: 'auto',
+			directives: { 'script-src': ['self'], 'connect-src': ['vitals.vercel-analytics.com'] }
+		}
 	}
 };
 
