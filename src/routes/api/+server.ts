@@ -1,5 +1,9 @@
-import type { RequestHandler } from '../../../.svelte-kit/types/src/routes/$types';
+import { json } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = () => {
-	return new Response(String(Math.random()));
+export const GET: RequestHandler = ({ getClientAddress, request }) => {
+	return json({
+		ip: getClientAddress(),
+		city: decodeURIComponent(request.headers.get('x-vercel-ip-city') ?? 'not found')
+	});
 };
