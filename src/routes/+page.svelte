@@ -6,11 +6,11 @@
 
 	let location: { ip: string; city: string } | null = null;
 
-	setInterval(async () => {
+	(async () => {
 		const res = await fetch($page.url.origin + '/api');
 
 		location = await res.json();
-	}, 1000);
+	})();
 </script>
 
 <p>{data.test}</p>
