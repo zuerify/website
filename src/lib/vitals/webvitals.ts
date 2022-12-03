@@ -43,12 +43,14 @@ function sendToAnalytics(
 		type: 'application/x-www-form-urlencoded'
 	});
 	if (navigator.sendBeacon) {
-		navigator.sendBeacon(vitalsUrl, blob);
+		const done = navigator.sendBeacon(vitalsUrl, blob);
+		console.log('done: ', metric.name, done);
 	} else {
 		fetch(vitalsUrl, {
 			body: blob,
 			method: 'POST',
 			credentials: 'omit',
+			referrerPolicy: 'no-referrer-when-downgrade',
 			keepalive: true
 		});
 		console.log('done: ', metric.name);
