@@ -24,8 +24,6 @@ function sendToAnalytics(
 		options.path
 	);
 
-	console.log(getConnectionSpeed);
-
 	const body = {
 		dsn: options.analyticsId,
 		id: metric.id,
