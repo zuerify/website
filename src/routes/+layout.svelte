@@ -27,7 +27,7 @@
 
 	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 
-	let analyticsId = import.meta.env.VITE_ANALYTICS;
+	let analyticsId = import.meta.env.VITE_VERCEL_WEB_ANALYTICS_ID ?? import.meta.env.VITE_ANALYTICS;
 
 	$: if (browser && analyticsId) {
 		webVitals({
