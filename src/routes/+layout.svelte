@@ -1,10 +1,14 @@
 <script lang="ts">
-	import '$lib/main.css';
 	import { onMount } from 'svelte';
+	// @ts-expect-error no types for this package
 	import { pwaInfo } from 'virtual:pwa-info';
 	import { webVitals } from '$lib/vitals/webvitals';
 	import { browser, dev } from '$app/environment';
 	import { page } from '$app/stores';
+
+	// css
+	import '$lib/main.css';
+	import '@fontsource/work-sans';
 
 	export const prerender = true;
 

@@ -10,7 +10,7 @@
 		"sourceMap": true,
 		"strict": true,
 
-		"types": ["vite/client", "vite-plugin-pwa/client"]
+		"types": ["vite/client", "vite-plugin-pwa/client", "workbox-build"]
 	}
 
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

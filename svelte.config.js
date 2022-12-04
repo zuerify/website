@@ -1,4 +1,5 @@
 import vercel from '@sveltejs/adapter-vercel';
+import node from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -8,7 +9,17 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		prerender: {
+			concurrency: 2
+		},
+
 		adapter: vercel({ edge: true, split: true })
+
+		//adapter: node({ precompress: true })
+	},
+
+	compilerOptions: {
+		css: 'external'
 	}
 };
 
