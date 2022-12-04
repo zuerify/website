@@ -1,51 +1,25 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	// @ts-expect-error no types for this package
-	import { pwaInfo } from 'virtual:pwa-info';
-	import { webVitals } from '$lib/vitals/webvitals';
-	import { browser, dev } from '$app/environment';
-	import { page } from '$app/stores';
-
 	// css
 	import '$lib/main.css';
 	import '@fontsource/work-sans';
+	import Header from './Header.svelte';
 
 	export const prerender = true;
-
-	onMount(async () => {
-		if (pwaInfo) {
-			const { registerSW } = await import('virtual:pwa-register');
-			registerSW({
-				immediate: true,
-				onRegistered(r) {
-					// uncomment following code if you want check for updates
-					// r && setInterval(() => {
-					//    console.log('Checking for sw update')
-					//    r.update()
-					// }, 20000 /* 20s for testing purposes */)
-				},
-				onRegisterError(error) {}
-			});
-		}
-	});
-
-	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
-
-	let analyticsId = import.meta.env.VITE_VERCEL_ANALYTICS_ID ?? import.meta.env.VITE_ANALYTICS;
-
-	$: if (browser && analyticsId) {
-		webVitals({
-			path: $page.url.pathname,
-			params: $page.params,
-			analyticsId
-		});
-	}
-
-	(async () => !dev && (await import('@vercel/analytics')).inject())();
 </script>
 
 <svelte:head>
-	{@html webManifest}
+	<script>
+		document.documentElement.classList.toggle(
+			'dark',
+			localStorage.getItem('theme-preference')
+				? localStorage.getItem('theme-preference') == 'dark'
+				: window.matchMedia('(prefers-color-scheme: dark)').matches
+		);
+	</script>
 </svelte:head>
 
-<slot />
+<div class="dark:bg-neutral-800 dark:text-stone-200">
+	<Header />
+
+	<slot />
+</div>
