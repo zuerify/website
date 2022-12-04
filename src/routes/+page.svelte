@@ -1,20 +1,18 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import { page } from '$app/stores';
+	let dots = '.';
 
-	export let data: PageData;
+	setInterval(() => {
+		if (dots.length == 3) {
+			return (dots = '.');
+		}
 
-	let location: { ip: string; city: string } | null = null;
-
-	(async () => {
-		const res = await fetch($page.url.origin + '/api');
-
-		location = await res.json();
-	})();
+		dots += '.';
+	}, 1000);
 </script>
 
-<p>{data.test}</p>
-
-<p>ip: {location == null ? 'loading..' : location.ip}</p>
-
-<p>city: {location == null ? 'loading..' : location.city}</p>
+<div class="dark:bg-neutral-800 dark:text-stone-200 min-h-screen flex justify-center items-center">
+	<div>
+		<h3>Zuerify</h3>
+		<h1 class="transition-all">Coming Soon{dots}</h1>
+	</div>
+</div>

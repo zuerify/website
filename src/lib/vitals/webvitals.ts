@@ -2,12 +2,18 @@ import { onCLS, onFCP, onFID, onLCP, onTTFB, type Metric } from 'web-vitals';
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
-function getConnectionSpeed() {
-	return 'connection' in navigator &&
-		navigator.connection &&
-		'effectiveType' in navigator.connection
-		? navigator['connection']['effectiveType']
-		: '';
+function getConnectionSpeed(): string {
+	if ('connection' in navigator) {
+		const connection = navigator.connection as Record<string, unknown>;
+
+		if ('effectiveType' in connection) {
+			return connection.effectiveType as string;
+		}
+
+		return '';
+	}
+
+	return '';
 }
 
 function sendToAnalytics(
@@ -24,7 +30,7 @@ function sendToAnalytics(
 		options.path
 	);
 
-	const body = {
+	const body: Record<string, string> = {
 		dsn: options.analyticsId,
 		id: metric.id,
 		page,
