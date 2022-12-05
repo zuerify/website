@@ -7,8 +7,13 @@ module.exports = {
 		fontFamily: {
 			sans: ['"Work Sans"', ...fontFamily.sans]
 		},
-		extend: {}
+		extend: {
+			colors: {
+				primary: '#268bcc'
+			}
+		}
 	},
-	darkMode:"class",
-	plugins: []
+	darkMode: 'class',
+	plugins: [],
+	experimental: { optimizeUniversalDefaults: true, matchVariant: true }
 };
