@@ -5,8 +5,9 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			sans: ['"Work Sans"', ...fontFamily.sans]
+			sans: ['"Outfit"', ...fontFamily.sans]
 		},
+
 		extend: {
 			colors: {
 				primary: '#268bcc'

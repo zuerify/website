@@ -4,7 +4,7 @@
 
 	// css
 	import '$lib/main.css';
-	import '@fontsource/work-sans';
+	import '@fontsource/outfit';
 
 	export const prerender = true;
 </script>
