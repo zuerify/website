@@ -2,7 +2,7 @@
 </script>
 
 <header
-	class="flex items-center justify-between bg-primary/90 py-3 px-4 text-neutral-100 backdrop-blur"
+	class="bg-inherit/90 flex items-center justify-between py-3 px-4 text-neutral-100 backdrop-blur-3xl"
 >
 	<a href="/" id="header-title">
 		<picture />

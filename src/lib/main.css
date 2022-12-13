@@ -9,6 +9,14 @@
 		@apply font-medium tracking-tight text-opacity-90 antialiased backdrop-blur-3xl;
 	}
 
+	::selection {
+		@apply bg-primary text-white;
+	}
+
+	.clip-triangle {
+		clip-path: polygon(0 0, 0 100%, 100% 100%);
+	}
+
 	h1 {
 		@apply text-5xl;
 	}
