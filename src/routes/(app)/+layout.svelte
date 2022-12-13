@@ -9,7 +9,7 @@
 	export const prerender = true;
 </script>
 
-<div class="flex min-h-screen flex-col justify-between  dark:bg-neutral-300 dark:text-stone-700">
+<div class="flex min-h-screen flex-col justify-between ">
 	<Header />
 
 	<main class="flex flex-grow">

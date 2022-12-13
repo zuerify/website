@@ -6,7 +6,7 @@
 	*,
 	*::after,
 	*::before {
-		@apply font-medium tracking-tight text-opacity-90 antialiased backdrop-blur-3xl;
+		@apply font-medium tracking-tight antialiased;
 	}
 
 	::selection {
