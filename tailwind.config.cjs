@@ -5,10 +5,16 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			sans: ['"Work Sans"', ...fontFamily.sans]
+			sans: ['"Outfit"', ...fontFamily.sans]
 		},
-		extend: {}
+
+		extend: {
+			colors: {
+				primary: '#268bcc'
+			}
+		}
 	},
-	darkMode:"class",
-	plugins: []
+	darkMode: 'class',
+	plugins: [],
+	experimental: { optimizeUniversalDefaults: true, matchVariant: true }
 };
