@@ -13,6 +13,5 @@
 	<nav class="flex items-center gap-5">
 		<a href="/about">about</a>
 		<a href="/projects">projects</a>
-		<a href="/test">test</a>
 	</nav>
 </header>
