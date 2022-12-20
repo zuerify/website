@@ -5,4 +5,4 @@ export const load: PageServerLoad = async () => {
 	return { user: await db.user.findMany() };
 };
 
-export const prerender = 'auto';
+export const prerender = true;

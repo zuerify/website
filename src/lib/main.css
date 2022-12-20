@@ -7,29 +7,56 @@
 	*::after,
 	*::before {
 		@apply font-medium tracking-tight antialiased;
+		scrollbar-width: thin;
+		scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+	}
+
+	html {
+		--scrollbarBG: rgb(1 1 1 /0);
+		--thumbBG: #737373;
+	}
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--scrollbarBG);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--thumbBG);
+		border: 3px solid var(--scrollbarBG);
 	}
 
 	::selection {
 		@apply bg-primary text-white;
 	}
 
-	.clip-triangle {
-		clip-path: polygon(0 0, 0 100%, 100% 100%);
-	}
-
 	h1 {
-		@apply text-5xl;
+		@apply text-6xl;
 	}
 
 	h2 {
-		@apply text-3xl;
+		@apply text-4xl;
 	}
 
 	h3 {
-		@apply text-xl;
+		@apply text-2xl;
 	}
 
 	h4 {
+		@apply text-xl;
+	}
+
+	h5 {
 		@apply text-lg;
+	}
+
+	@font-face {
+		font-family: 'Aceh';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url('/font/Aceh-ExtraBold.woff2') format('woff2');
 	}
 }

@@ -11,6 +11,10 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: '#268bcc'
+			},
+
+			fontFamily: {
+				aceh: ['"Aceh"']
 			}
 		}
 	},
