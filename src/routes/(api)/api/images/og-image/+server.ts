@@ -1,4 +1,4 @@
-import type { RequestHandler } from '../../(api)/api/$types';
+import type { RequestHandler } from './$types';
 import { ImageResponse } from '@ethercorps/sveltekit-og';
 import { dev } from '$app/environment';
 
