@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { setPreferredTheme, getPreferredDark } from '$lib/theme';
+	import font from '$lib/font/Aceh-ExtraBold.woff2';
 
 	let dark: boolean | null = null;
+	let active: number | null = null;
+	let scrollY: number;
 
 	onMount(() => {
 		dark = getPreferredDark();
@@ -15,39 +18,84 @@
 	}
 </script>
 
+<svelte:window bind:scrollY />
+
 <svelte:head>
-	<link
-		rel="preload"
-		as="font"
-		type="font/woff2"
-		href="/font/Aceh-ExtraBold.woff2"
-		crossorigin="anonymous"
-	/>
+	<link rel="preload" as="font" type="font/woff2" href={font} crossorigin="anonymous" />
 
-	<script type="ts">
-		import { setPreferredTheme, getPreferredDark } from '$lib/theme';
-
+	<script>
 		setPreferredTheme(getPreferredDark());
+
+		function getPreferredDark() {
+			if (localStorage.getItem('dark')) {
+				return localStorage.getItem('dark') == 'true';
+			}
+
+			return window.matchMedia('(prefers-color-scheme: dark)').matches;
+		}
+
+		function setPreferredTheme(value) {
+			localStorage.setItem('dark', String(value));
+
+			if (window) {
+				document.documentElement.classList.toggle('dark', value);
+			}
+		}
 	</script>
 </svelte:head>
 
-<header class="sticky flex items-center justify-between px-4 py-3 backdrop-blur-xl ">
+<header
+	class="sticky top-0 flex items-center justify-between bg-neutral-50/75 px-4 py-2.5 backdrop-blur-sm backdrop-filter  dark:bg-slate-900/75 {scrollY >
+		10 && 'shadow-sm'}"
+>
 	<a href="/" id="header-title" class="flex items-center gap-2 font-aceh">
 		<h2>zuerify</h2>
 	</a>
 
-	<nav class="flex items-center gap-5">
-		<a href="/about">about us</a>
-		<a href="/services">our services</a>
-		<a href="/projects">projects</a>
-		<a href="/testimonials">testimonials</a>
-		<a href="/contact">contact us</a>
+	<nav on:pointerleave={() => (active = null)} class="flex items-center gap-5 ">
+		<a
+			on:pointerenter={() => (active = 5)}
+			class="transition-all active:underline {active && active !== 5 ? 'text-neutral-500' : ''}"
+			href="/about"
+		>
+			about us
+		</a>
+		<a
+			on:pointerenter={() => (active = 1)}
+			class="transition-all active:underline {active && active !== 1 ? 'text-neutral-500' : ''}"
+			href="/services"
+		>
+			our services
+		</a>
+		<a
+			on:pointerenter={() => (active = 2)}
+			class="transition-all active:underline {active && active !== 2 ? 'text-neutral-500' : ''}"
+			href="/projects"
+		>
+			projects
+		</a>
+		<a
+			on:pointerenter={() => (active = 3)}
+			class="transition-all active:underline {active && active !== 3 ? 'text-neutral-500' : ''}"
+			href="/testimonials"
+		>
+			testimonials
+		</a>
+		<a
+			on:pointerenter={() => (active = 4)}
+			class="transition-all active:underline {active && active !== 4 ? 'text-neutral-500' : ''}"
+			href="/contact"
+		>
+			contact us
+		</a>
 
 		<button
 			title="Toggles light & dark"
 			aria-label="auto"
 			aria-live="polite"
 			on:click={switchTheme}
+			on:pointerenter={() => (active = -1)}
+			class="h-6 w-6 overflow-hidden"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +103,9 @@
 				height="24px"
 				viewBox="0 0 24 24"
 				width="24px"
-				class="fill-current {dark && 'hidden'}"
+				class="h-6 w-6 fill-current transition-transform {dark
+					? 'translate-y-full'
+					: 'translate-y-0'}"
 				fill="inherit"
 			>
 				<rect fill="none" height="24" width="24" />
@@ -69,7 +119,9 @@
 				enable-background="new 0 0 24 24"
 				height="24px"
 				viewBox="0 0 24 24"
-				class="fill-current {!dark && 'hidden'}"
+				class="h-6 w-6 fill-current transition-transform {!dark
+					? 'translate-y-0'
+					: '-translate-y-full'}"
 				width="24px"
 				fill="inherit"
 			>
