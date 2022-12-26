@@ -43,15 +43,11 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@ethercorps/sveltekit-og": "^1.1.1",
 		"@fontsource/outfit": "^4.5.10",
-		"@resvg/resvg-js": "^2.2.0",
 		"@supabase/supabase-js": "^2.2.2",
 		"@vercel/analytics": "^0.1.6",
 		"@vercel/edge": "^0.1.2",
 		"cssnano": "^5.1.14",
-		"satori": "^0.0.44",
-		"satori-html": "^0.3.2",
 		"web-vitals": "^3.1.0",
 		"zod": "^3.20.2"
 	}

@@ -9,17 +9,9 @@ const config = {
 	preprocess: preprocess({}),
 
 	kit: {
-		prerender: {
-			concurrency: 2
-		},
-
 		adapter: vercel({ edge: true, split: true })
 
 		//adapter: node({ precompress: true })
-	},
-
-	compilerOptions: {
-		css: 'external'
 	}
 };
 
