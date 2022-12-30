@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/material-icons': ^4.5.4
+  '@fontsource/material-icons-rounded': ^4.5.4
   '@fontsource/outfit': ^4.5.10
   '@prisma/client': ~4.7.1
   '@supabase/supabase-js': ^2.2.2
@@ -38,6 +40,8 @@ specifiers:
   zod: ^3.20.2
 
 dependencies:
+  '@fontsource/material-icons': 4.5.4
+  '@fontsource/material-icons-rounded': 4.5.4
   '@fontsource/outfit': 4.5.10
   '@supabase/supabase-js': 2.2.2
   '@vercel/analytics': 0.1.6_react@18.2.0
@@ -310,6 +314,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/material-icons-rounded/4.5.4:
+    resolution: {integrity: sha512-zBrzaDzj//EJiuz9+yaL3uvYhqGcGXxewrwWy0fqHibOivNE9mlYtIjgibNRjEmS0eRXUu9h3TNmahlLwj3JvQ==}
+    dev: false
+
+  /@fontsource/material-icons/4.5.4:
+    resolution: {integrity: sha512-YGmXkkEdu6EIgpFKNmB/nIXzZocwSmbI01Ninpmml8x8BT0M6RR++V1KqOfpzZ6Cw/FQ2/KYonQ3x4IY/4VRRA==}
+    dev: false
 
   /@fontsource/outfit/4.5.10:
     resolution: {integrity: sha512-wT8hmcueW5okOS8BQGARL0zdJOe032FctWr9df/0ixXpAiZ4WfnigRd3/ThhmmRwFgNxbjwqZ9bmO+5QDjaTbA==}

@@ -29,7 +29,11 @@
 	}
 
 	::selection {
-		@apply bg-primary text-white;
+		@apply bg-blue-900 text-neutral-50;
+	}
+
+	.dark ::selection {
+		@apply bg-blue-100 text-slate-900;
 	}
 
 	h1 {

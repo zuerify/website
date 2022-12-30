@@ -3,7 +3,6 @@ import { db } from '$lib/server/prisma';
 
 export const load: PageServerLoad = async () => {
 	return {
-		user: null
 		//await db.user.findMany()
 	};
 };
