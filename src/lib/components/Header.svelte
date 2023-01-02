@@ -47,7 +47,7 @@
 </svelte:head>
 
 <header
-	class="sticky top-0 flex items-center justify-between bg-neutral-100/75 px-4 py-2.5 backdrop-blur-sm backdrop-filter  dark:bg-slate-900/75 {scrollY >
+	class="sticky top-0  flex items-center justify-between bg-neutral-100/75 px-4 py-2.5 backdrop-blur-sm backdrop-filter  dark:bg-slate-900/75 {scrollY >
 		10 && 'shadow-sm'}"
 >
 	<a href="/" id="header-title" class="flex items-center gap-2 font-aceh">
@@ -55,13 +55,6 @@
 	</a>
 
 	<nav on:pointerleave={() => (active = null)} class="hidden items-center gap-5 md:flex">
-		<a
-			on:pointerenter={() => (active = 5)}
-			class="transition-all active:underline {active && active !== 5 ? 'text-neutral-500' : ''}"
-			href="/about"
-		>
-			about us
-		</a>
 		<a
 			on:pointerenter={() => (active = 1)}
 			class="transition-all active:underline {active && active !== 1 ? 'text-neutral-500' : ''}"
@@ -74,7 +67,7 @@
 			class="transition-all active:underline {active && active !== 2 ? 'text-neutral-500' : ''}"
 			href="/projects"
 		>
-			projects
+			our work
 		</a>
 		<a
 			on:pointerenter={() => (active = 3)}
@@ -82,6 +75,13 @@
 			href="/testimonials"
 		>
 			testimonials
+		</a>
+		<a
+			on:pointerenter={() => (active = 5)}
+			class="transition-all active:underline {active && active !== 5 ? 'text-neutral-500' : ''}"
+			href="/about"
+		>
+			about us
 		</a>
 		<a
 			on:pointerenter={() => (active = 4)}
@@ -214,13 +214,6 @@
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline"
-			href="/about"
-		>
-			about us
-		</a>
-		<a
-			on:click={() => (menuOpen = false)}
-			class="text-xl transition-all active:underline"
 			href="/services"
 		>
 			our services
@@ -230,7 +223,7 @@
 			class="text-xl transition-all active:underline "
 			href="/projects"
 		>
-			projects
+			our work
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}
@@ -238,6 +231,13 @@
 			href="/testimonials"
 		>
 			testimonials
+		</a>
+		<a
+			on:click={() => (menuOpen = false)}
+			class="text-xl transition-all active:underline"
+			href="/about"
+		>
+			about us
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}

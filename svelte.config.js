@@ -6,10 +6,17 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess({}),
+	preprocess: preprocess({
+		postcss: {
+			plugins: [import('autoprefixer'), import('tailwindcss')]
+		}
+	}),
 
 	kit: {
-		adapter: vercel({ edge: true, split: true })
+		adapter: vercel({ edge: true, split: true }),
+		serviceWorker: {
+			register: process.env.NODE_ENV === 'production'
+		}
 
 		//adapter: node({ precompress: true })
 	}

@@ -1,14 +1,12 @@
 <script lang="ts">
 	import { dark } from '$lib/theme';
-
-	export const prerender = true;
 </script>
 
-<div
-	class="flex h-[calc(100vh-63.75px)] flex-grow flex-col items-center justify-between gap-5 pb-20 md:flex-row"
+<section
+	class="flex h-screen flex-grow flex-col items-center justify-around pb-20 md:flex-row md:justify-between md:gap-32"
 >
 	<div class="flex flex-col gap-3">
-		<h1 class="mb-5 text-5xl  md:text-4xl xl:text-5xl">
+		<h1 class="mb-5 text-3xl  md:text-4xl xl:text-5xl">
 			Stunning online presence, just one click away.
 		</h1>
 
@@ -17,20 +15,25 @@
 			establish a strong online presence and reach their target audience.
 		</p>
 
-		<p class="mb-5">
+		<p class="mb-7">
 			We are a team of passionate designers and developers who are committed to creating websites
 			that are not only visually appealing but also functional and easy to use.
 		</p>
 
 		<button
-			class="float-left w-fit rounded-md bg-slate-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
+			class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
 		>
 			Contact us now
 		</button>
 	</div>
 
-	<div class="w-[75%] min-w-[200px]">
-		<svg class="h-full w-full" viewBox="0 0 775 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<div class="w-full min-w-[350px] lg:w-[75%]">
+		<svg
+			class="h-full w-full"
+			viewBox="100 0 700 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<path
 				class="fill-neutral-100 dark:fill-slate-900"
 				fill={$dark ? '#0f172a' : '#f5f5f5'}
@@ -238,4 +241,62 @@
 			/>
 		</svg>
 	</div>
-</div>
+</section>
+
+<section class="flex h-screen w-full flex-col justify-center gap-10 lg:items-center">
+	<h1 class="text-3xl  md:text-4xl xl:text-5xl">Our Services</h1>
+
+	<div class="flex w-full flex-col justify-around lg:flex-row lg:items-center">
+		<div class="rounded py-5 lg:h-[75%]  lg:max-w-[30%] lg:px-10">
+			<p class="font-normal text-slate-600">01</p>
+			<h3 class="mb-3 font-bold">Website design</h3>
+
+			<p class="mb-7">
+				By discussing with the client and finding inspiration on the internet, we create detailed
+				design concepts to meet the client's needs.
+			</p>
+
+			<button
+				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
+			>
+				Learn more
+			</button>
+		</div>
+
+		<div class="rounded py-5 lg:h-[75%] lg:max-w-[30%] lg:px-10">
+			<p class="font-normal text-slate-600">02</p>
+			<h3 class="mb-3 font-bold">Website development</h3>
+
+			<p class="mb-7">
+				With our experience and knowledge, we create feature-rich websites that are lightning fast
+				and on par with technical progress.
+			</p>
+
+			<button
+				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
+			>
+				Learn more
+			</button>
+		</div>
+
+		<div class="rounded py-5 lg:h-[75%] lg:max-w-[30%] lg:px-10">
+			<p class="font-normal text-slate-600">03</p>
+			<h3 class="mb-3 font-bold">Website maintenance</h3>
+
+			<p class="mb-7">
+				We provide ongoing support and maintenance for your website and also provide training and
+				tools to ensure that you can also make changes to your website.
+			</p>
+
+			<button
+				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
+			>
+				Learn more
+			</button>
+		</div>
+	</div>
+</section>
+
+<section class="flex h-screen w-full flex-col justify-center gap-10 lg:items-center">
+	<h1 class="text-3xl  md:text-4xl xl:text-5xl">Our Work</h1>
+</section>

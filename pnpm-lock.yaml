@@ -29,6 +29,7 @@ specifiers:
   react: ~18.2.0
   svelte: ^3.55.0
   svelte-check: ^2.10.3
+  svelte-inview: ^3.0.1
   svelte-preprocess: ^4.10.7
   tailwindcss: ^3.2.4
   tslib: ^2.4.1
@@ -47,6 +48,7 @@ dependencies:
   '@vercel/analytics': 0.1.6_react@18.2.0
   '@vercel/edge': 0.1.2
   cssnano: 5.1.14_postcss@8.4.20
+  svelte-inview: 3.0.1_svelte@3.55.0
   web-vitals: 3.1.0
   zod: 3.20.2
 
@@ -3352,6 +3354,14 @@ packages:
       svelte: 3.55.0
     dev: true
 
+  /svelte-inview/3.0.1_svelte@3.55.0:
+    resolution: {integrity: sha512-kmlD4l/z5tqMqGuWLOSz6Ys2ISJ2WXg01jFVygugma0XA45UeYNGjoRazp+gMvaWoHqCQPx6D8cH9YQBS1pZxA==}
+    peerDependencies:
+      svelte: ^3.0.0
+    dependencies:
+      svelte: 3.55.0
+    dev: false
+
   /svelte-preprocess/4.10.7_uldce6htlskfyklq5y55tk7pdy:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
     engines: {node: '>= 9.11.2'}
@@ -3407,7 +3417,6 @@ packages:
   /svelte/3.55.0:
     resolution: {integrity: sha512-uGu2FVMlOuey4JoKHKrpZFkoYyj0VLjJdz47zX5+gVK5odxHM40RVhar9/iK2YFRVxvfg9FkhfVlR0sjeIrOiA==}
     engines: {node: '>= 8'}
-    dev: true
 
   /svgo/2.8.0:
     resolution: {integrity: sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==}
