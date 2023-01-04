@@ -6,7 +6,7 @@ let injected = false;
 
 export const handle = (async ({ event, resolve }) => {
 	if (!injected) {
-		inject({ mode: dev ? 'development' : 'production' });
+		inject({ mode: 'auto' });
 		injected = true;
 	}
 
