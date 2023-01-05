@@ -1,4 +1,3 @@
-import { dev } from '$app/environment';
 import type { Handle } from '@sveltejs/kit';
 import { inject } from '@vercel/analytics';
 

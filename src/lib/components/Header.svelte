@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import { setPreferredTheme, getPreferredDark } from '$lib/theme';
 	import font from '$lib/font/Aceh-ExtraBold.woff2';
+	import icons2 from '$lib/font/material-icons-rounded-all-400-normal.woff2';
+	import icons from '$lib/font/material-icons-rounded-all-400-normal.woff';
 
 	let dark: boolean | null = null;
 	let active: number | null = null;
@@ -24,6 +26,8 @@
 
 <svelte:head>
 	<link rel="preload" as="font" type="font/woff2" href={font} crossorigin="anonymous" />
+	<link rel="preload" as="font" type="font/woff2" href={icons2} crossorigin="anonymous" />
+	<link rel="preload" as="font" type="font/woff" href={icons} crossorigin="anonymous" />
 
 	<script>
 		setPreferredTheme(getPreferredDark());
