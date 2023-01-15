@@ -48,6 +48,28 @@ type RootTranslation = {
 			CONTACT: string
 		}
 	}
+	MAIN: {
+		/**
+		 * C​o​n​t​a​c​t​ ​u​s​ ​n​o​w
+		 */
+		CONTACT_BUTTON: string
+		HERO: {
+			/**
+			 * S​t​u​n​n​i​n​g​ ​o​n​l​i​n​e​ ​p​r​e​s​e​n​c​e​,​ ​j​u​s​t​ ​o​n​e​ ​c​l​i​c​k​ ​a​w​a​y​.
+			 */
+			SLOGAN: string
+			PARAGRAPHS: {
+				/**
+				 * W​e​ ​s​p​e​c​i​a​l​i​z​e​ ​i​n​ ​c​r​e​a​t​i​n​g​ ​v​i​s​u​a​l​l​y​ ​s​t​u​n​n​i​n​g​ ​a​n​d​ ​u​s​e​r​-​f​r​i​e​n​d​l​y​ ​w​e​b​s​i​t​e​s​ ​f​o​r​ ​b​u​s​i​n​e​s​s​e​s​ ​t​o​ ​e​s​t​a​b​l​i​s​h​ ​a​ ​s​t​r​o​n​g​ ​o​n​l​i​n​e​ ​p​r​e​s​e​n​c​e​ ​a​n​d​ ​r​e​a​c​h​ ​t​h​e​i​r​ ​t​a​r​g​e​t​ ​a​u​d​i​e​n​c​e​.
+				 */
+				'0': string
+				/**
+				 * W​e​ ​a​r​e​ ​a​ ​t​e​a​m​ ​o​f​ ​p​a​s​s​i​o​n​a​t​e​ ​d​e​s​i​g​n​e​r​s​ ​a​n​d​ ​d​e​v​e​l​o​p​e​r​s​ ​w​h​o​ ​a​r​e​ ​c​o​m​m​i​t​t​e​d​ ​t​o​ ​c​r​e​a​t​i​n​g​ ​w​e​b​s​i​t​e​s​t​h​a​t​ ​a​r​e​ ​n​o​t​ ​o​n​l​y​ ​v​i​s​u​a​l​l​y​ ​a​p​p​e​a​l​i​n​g​ ​b​u​t​ ​a​l​s​o​ ​f​u​n​c​t​i​o​n​a​l​ ​a​n​d​ ​e​a​s​y​ ​t​o​ ​u​s​e​.
+				 */
+				'1': string
+			}
+		}
+	}
 	/**
 	 * H​i​ ​{​n​a​m​e​}​!​ ​P​l​e​a​s​e​ ​l​e​a​v​e​ ​a​ ​s​t​a​r​ ​i​f​ ​y​o​u​ ​l​i​k​e​ ​t​h​i​s​ ​p​r​o​j​e​c​t​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​i​v​a​n​h​o​f​e​r​/​t​y​p​e​s​a​f​e​-​i​1​8​n
 	 * @param {string} name
@@ -88,6 +110,28 @@ export type TranslationFunctions = {
 			 * contact us
 			 */
 			CONTACT: () => LocalizedString
+		}
+	}
+	MAIN: {
+		/**
+		 * Contact us now
+		 */
+		CONTACT_BUTTON: () => LocalizedString
+		HERO: {
+			/**
+			 * Stunning online presence, just one click away.
+			 */
+			SLOGAN: () => LocalizedString
+			PARAGRAPHS: {
+				/**
+				 * We specialize in creating visually stunning and user-friendly websites for businesses to establish a strong online presence and reach their target audience.
+				 */
+				'0': () => LocalizedString
+				/**
+				 * We are a team of passionate designers and developers who are committed to creating websitesthat are not only visually appealing but also functional and easy to use.
+				 */
+				'1': () => LocalizedString
+			}
 		}
 	}
 	/**

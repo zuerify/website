@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LL from '$lib/i18n/i18n-svelte';
 	import { dark } from '$lib/theme';
 </script>
 
@@ -7,23 +8,21 @@
 >
 	<div class="flex flex-col gap-3">
 		<h1 class="mb-5 text-3xl  md:text-4xl xl:text-5xl">
-			Stunning online presence, just one click away.
+			{$LL.MAIN.HERO.SLOGAN()}
 		</h1>
 
 		<p>
-			We specialize in creating visually stunning and user-friendly websites for businesses to
-			establish a strong online presence and reach their target audience.
+			{$LL.MAIN.HERO.PARAGRAPHS[0]()}
 		</p>
 
 		<p class="mb-7">
-			We are a team of passionate designers and developers who are committed to creating websites
-			that are not only visually appealing but also functional and easy to use.
+			{$LL.MAIN.HERO.PARAGRAPHS[1]()}
 		</p>
 
 		<button
 			class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
 		>
-			Contact us now
+			{$LL.MAIN.CONTACT_BUTTON()}
 		</button>
 	</div>
 

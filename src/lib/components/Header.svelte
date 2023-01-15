@@ -108,7 +108,7 @@
 	class="sticky top-0  flex items-center justify-between bg-neutral-100/75 px-4 py-2.5 backdrop-blur-sm backdrop-filter  dark:bg-slate-900/75 {scrollY >
 		10 && 'shadow-sm'}"
 >
-	<a href="/{$locale}/" id="header-title" class="flex items-center gap-2 font-aceh">
+	<a href="/{$locale}" id="header-title" class="flex items-center gap-2 font-aceh">
 		<h2>zuerify</h2>
 	</a>
 
@@ -247,6 +247,41 @@
 		: 'right-0'}"
 >
 	<div class="absolute top-0 right-0 flex items-center justify-center ">
+		<button
+			on:pointerenter={() => (active = -1)}
+			class="group relative flex aspect-square w-[64px] appearance-none items-center justify-center border-none bg-transparent outline-none"
+			name="language"
+		>
+			<img src={$locale == 'de' ? DE : EN} alt="English" class="h-6 w-6 rounded-full " />
+
+			<div
+				class="absolute right-0 top-[40px] mt-3 hidden w-max flex-col gap-1 rounded bg-neutral-200/80 p-2 shadow backdrop-blur group-focus:flex dark:bg-slate-800/80"
+			>
+				{#each locales as l}
+					<a
+						on:pointerdown={() => switchLocale(l, true)}
+						data-sveltekit-preload-data="tap"
+						href={replaceLocaleInUrl($page.url, l)}
+						class:activeLang={$locale == l}
+						class="flex gap-2 rounded py-1.5 pr-2 pl-1 hover:bg-neutral-200/95 dark:hover:bg-slate-800/95"
+						in:fly
+					>
+						{#await import(`$lib/images/${l}.webp`) then img}
+							<img
+								src={img.default}
+								alt={$LL.HEADER.LANGSELECT[localeToString(l)]()}
+								class="h-6 w-6 rounded-full "
+							/>
+						{/await}
+
+						{$LL.HEADER.LANGSELECT[localeToString(l)]()}
+					</a>
+				{/each}
+			</div>
+		</button>
+
+		<div class="h-[30px] w-px bg-blue-900/50 dark:bg-slate-500" />
+
 		<div class="flex aspect-square w-[64px] items-center justify-center">
 			<button
 				title="Toggles light & dark"
