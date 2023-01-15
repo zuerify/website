@@ -4,6 +4,56 @@
 	import font from '$lib/font/Aceh-ExtraBold.woff2';
 	import icons2 from '$lib/font/material-icons-rounded-all-400-normal.woff2';
 	import icons from '$lib/font/material-icons-rounded-all-400-normal.woff';
+	import EN from '$lib/images/en.webp';
+	import DE from '$lib/images/de.webp';
+	import { LL, setLocale, locale } from '$lib/i18n/i18n-svelte';
+	import { browser } from '$app/environment';
+	import { invalidateAll } from '$app/navigation';
+	import { page } from '$app/stores';
+	import type { Locales } from '$lib/i18n/i18n-types';
+	import { locales } from '$lib/i18n/i18n-util';
+	import { loadLocaleAsync } from '$lib/i18n/i18n-util.async';
+	import { fly } from 'svelte/transition';
+
+	export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
+		const [, , ...rest] = url.pathname.split('/');
+		const new_pathname = `/${[locale, ...rest].join('/')}`;
+		if (!full) {
+			return `${new_pathname}${url.search}`;
+		}
+		const newUrl = new URL(url.toString());
+		newUrl.pathname = new_pathname;
+		return newUrl.toString();
+	};
+
+	const switchLocale = async (newLocale: Locales, updateHistoryState = true) => {
+		if (!newLocale || $locale === newLocale) return;
+		// load new dictionary from server
+		await loadLocaleAsync(newLocale);
+		// select locale
+		setLocale(newLocale);
+		// update `lang` attribute
+		document.querySelector('html')?.setAttribute('lang', newLocale);
+		if (updateHistoryState) {
+			// update url to reflect locale changes
+			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale));
+		}
+		// run the `load` function again
+		invalidateAll();
+	};
+
+	// update locale when navigating via browser back/forward buttons
+	const handlePopStateEvent = async ({ state }: PopStateEvent) => switchLocale(state.locale, false);
+	// update locale when page store changes
+	$: if (browser) {
+		const lang = $page.params.lang as Locales;
+		switchLocale(lang, false);
+		history.replaceState(
+			{ ...history.state, locale: lang },
+			'',
+			replaceLocaleInUrl($page.url, lang)
+		);
+	}
 
 	let dark: boolean | null = null;
 	let active: number | null = null;
@@ -19,6 +69,10 @@
 	function switchTheme() {
 		dark = !dark;
 		setPreferredTheme(dark);
+	}
+
+	function localeToString(locale: Locales): 'DE' | 'EN' {
+		return locale.toUpperCase() as 'DE' | 'EN';
 	}
 </script>
 
@@ -54,7 +108,7 @@
 	class="sticky top-0  flex items-center justify-between bg-neutral-100/75 px-4 py-2.5 backdrop-blur-sm backdrop-filter  dark:bg-slate-900/75 {scrollY >
 		10 && 'shadow-sm'}"
 >
-	<a href="/" id="header-title" class="flex items-center gap-2 font-aceh">
+	<a href="/{$locale}/" id="header-title" class="flex items-center gap-2 font-aceh">
 		<h2>zuerify</h2>
 	</a>
 
@@ -62,38 +116,71 @@
 		<a
 			on:pointerenter={() => (active = 1)}
 			class="transition-all active:underline {active && active !== 1 ? 'text-neutral-500' : ''}"
-			href="/services"
+			href="/{$locale}/services"
 		>
-			our services
+			{$LL.HEADER.NAVIGATION.SERVICES()}
 		</a>
 		<a
 			on:pointerenter={() => (active = 2)}
 			class="transition-all active:underline {active && active !== 2 ? 'text-neutral-500' : ''}"
-			href="/projects"
+			href="/{$locale}/projects"
 		>
-			our work
+			{$LL.HEADER.NAVIGATION.WORK()}
 		</a>
 		<a
 			on:pointerenter={() => (active = 3)}
 			class="transition-all active:underline {active && active !== 3 ? 'text-neutral-500' : ''}"
-			href="/testimonials"
+			href="/{$locale}/testimonials"
 		>
-			testimonials
+			{$LL.HEADER.NAVIGATION.TESTIMONIALS()}
 		</a>
 		<a
 			on:pointerenter={() => (active = 5)}
 			class="transition-all active:underline {active && active !== 5 ? 'text-neutral-500' : ''}"
-			href="/about"
+			href="/{$locale}/about"
 		>
-			about us
+			{$LL.HEADER.NAVIGATION.ABOUT()}
 		</a>
 		<a
 			on:pointerenter={() => (active = 4)}
 			class="transition-all active:underline {active && active !== 4 ? 'text-neutral-500' : ''}"
-			href="/contact"
+			href="/{$locale}/contact"
 		>
-			contact us
+			{$LL.HEADER.NAVIGATION.CONTACT()}
 		</a>
+
+		<button
+			on:pointerenter={() => (active = -1)}
+			class="group relative appearance-none border-none bg-transparent outline-none"
+			name="language"
+		>
+			<img src={$locale == 'de' ? DE : EN} alt="English" class="h-6 w-6 rounded-full " />
+
+			<div
+				class="absolute right-0 mt-3 hidden w-max flex-col gap-1 rounded bg-neutral-200/80 p-2 shadow backdrop-blur group-focus:flex dark:bg-slate-800/80"
+			>
+				{#each locales as l}
+					<a
+						on:pointerdown={() => switchLocale(l, true)}
+						data-sveltekit-preload-data="tap"
+						href={replaceLocaleInUrl($page.url, l)}
+						class:activeLang={$locale == l}
+						class="flex gap-2 rounded py-1.5 pr-2 pl-1 hover:bg-neutral-200/95 dark:hover:bg-slate-800/95"
+						in:fly
+					>
+						{#await import(`$lib/images/${l}.webp`) then img}
+							<img
+								src={img.default}
+								alt={$LL.HEADER.LANGSELECT[localeToString(l)]()}
+								class="h-6 w-6 rounded-full "
+							/>
+						{/await}
+
+						{$LL.HEADER.LANGSELECT[localeToString(l)]()}
+					</a>
+				{/each}
+			</div>
+		</button>
 
 		<button
 			title="Toggles light & dark"
@@ -218,37 +305,37 @@
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline"
-			href="/services"
+			href="/{$locale}/services"
 		>
-			our services
+			{$LL.HEADER.NAVIGATION.SERVICES()}
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline "
-			href="/projects"
+			href="/{$locale}/projects"
 		>
-			our work
+			{$LL.HEADER.NAVIGATION.WORK()}
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline "
-			href="/testimonials"
+			href="/{$locale}/testimonials"
 		>
-			testimonials
+			{$LL.HEADER.NAVIGATION.TESTIMONIALS()}
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline"
-			href="/about"
+			href="/{$locale}/about"
 		>
-			about us
+			{$LL.HEADER.NAVIGATION.ABOUT()}
 		</a>
 		<a
 			on:click={() => (menuOpen = false)}
 			class="text-xl transition-all active:underline "
-			href="/contact"
+			href="/{$locale}/contact"
 		>
-			contact us
+			{$LL.HEADER.NAVIGATION.CONTACT()}
 		</a>
 	</div>
 </nav>

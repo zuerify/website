@@ -19,6 +19,6 @@ module.exports = {
 		}
 	},
 	darkMode: 'class',
-	plugins: [],
+	plugins: [require('@tailwindcss/forms')],
 	experimental: { optimizeUniversalDefaults: true, matchVariant: true }
 };

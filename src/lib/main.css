@@ -99,4 +99,12 @@
 		text-rendering: optimizeLegibility;
 		-moz-osx-font-smoothing: grayscale;
 	}
+
+	.activeLang > img {
+		@apply ring-[1.5px] ring-blue-900;
+	}
+
+	.dark .activeLang > img {
+		@apply ring-[1.5px] ring-blue-100;
+	}
 }

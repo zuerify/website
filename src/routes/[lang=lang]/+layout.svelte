@@ -6,8 +6,6 @@
 
 	// css
 	import '$lib/main.css';
-
-	export const prerender = true;
 </script>
 
 <div class="flex min-h-screen flex-col justify-between ">
