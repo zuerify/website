@@ -53,6 +53,10 @@ type RootTranslation = {
 		 * C​o​n​t​a​c​t​ ​u​s​ ​n​o​w
 		 */
 		CONTACT_BUTTON: string
+		/**
+		 * L​e​a​r​n​ ​m​o​r​e
+		 */
+		LEARN_MORE: string
 		HERO: {
 			/**
 			 * S​t​u​n​n​i​n​g​ ​o​n​l​i​n​e​ ​p​r​e​s​e​n​c​e​,​ ​j​u​s​t​ ​o​n​e​ ​c​l​i​c​k​ ​a​w​a​y​.
@@ -67,6 +71,44 @@ type RootTranslation = {
 				 * W​e​ ​a​r​e​ ​a​ ​t​e​a​m​ ​o​f​ ​p​a​s​s​i​o​n​a​t​e​ ​d​e​s​i​g​n​e​r​s​ ​a​n​d​ ​d​e​v​e​l​o​p​e​r​s​ ​w​h​o​ ​a​r​e​ ​c​o​m​m​i​t​t​e​d​ ​t​o​ ​c​r​e​a​t​i​n​g​ ​w​e​b​s​i​t​e​s​t​h​a​t​ ​a​r​e​ ​n​o​t​ ​o​n​l​y​ ​v​i​s​u​a​l​l​y​ ​a​p​p​e​a​l​i​n​g​ ​b​u​t​ ​a​l​s​o​ ​f​u​n​c​t​i​o​n​a​l​ ​a​n​d​ ​e​a​s​y​ ​t​o​ ​u​s​e​.
 				 */
 				'1': string
+			}
+		}
+		OUR_SERVICES: {
+			/**
+			 * O​u​r​ ​S​e​r​v​i​c​e​s
+			 */
+			TITLE: string
+			SERVICES: {
+				'0': {
+					/**
+					 * W​e​b​s​i​t​e​ ​D​e​s​i​g​n
+					 */
+					TITLE: string
+					/**
+					 * B​y​ ​d​i​s​c​u​s​s​i​n​g​ ​w​i​t​h​ ​t​h​e​ ​c​l​i​e​n​t​ ​a​n​d​ ​f​i​n​d​i​n​g​ ​i​n​s​p​i​r​a​t​i​o​n​ ​o​n​ ​t​h​e​ ​i​n​t​e​r​n​e​t​,​ ​w​e​ ​c​r​e​a​t​e​ ​d​e​t​a​i​l​e​d​ ​d​e​s​i​g​n​ ​c​o​n​c​e​p​t​s​ ​t​o​ ​m​e​e​t​ ​t​h​e​ ​c​l​i​e​n​t​'​s​ ​n​e​e​d​s​.
+					 */
+					DESCRIPTION: string
+				}
+				'1': {
+					/**
+					 * W​e​b​s​i​t​e​ ​D​e​v​e​l​o​p​m​e​n​t
+					 */
+					TITLE: string
+					/**
+					 * W​i​t​h​ ​o​u​r​ ​e​x​p​e​r​i​e​n​c​e​ ​a​n​d​ ​k​n​o​w​l​e​d​g​e​,​ ​w​e​ ​c​r​e​a​t​e​ ​f​e​a​t​u​r​e​-​r​i​c​h​ ​w​e​b​s​i​t​e​s​ ​t​h​a​t​ ​a​r​e​ ​l​i​g​h​t​n​i​n​g​ ​f​a​s​t​ ​a​n​d​ ​o​n​ ​p​a​r​ ​w​i​t​h​ ​t​e​c​h​n​i​c​a​l​ ​p​r​o​g​r​e​s​s​.
+					 */
+					DESCRIPTION: string
+				}
+				'2': {
+					/**
+					 * W​e​b​s​i​t​e​ ​M​a​i​n​t​e​n​a​n​c​e
+					 */
+					TITLE: string
+					/**
+					 * W​e​ ​p​r​o​v​i​d​e​ ​o​n​g​o​i​n​g​ ​s​u​p​p​o​r​t​ ​a​n​d​ ​m​a​i​n​t​e​n​a​n​c​e​ ​f​o​r​ ​y​o​u​r​ ​w​e​b​s​i​t​e​ ​a​n​d​ ​a​l​s​o​ ​p​r​o​v​i​d​e​ ​t​r​a​i​n​i​n​g​ ​a​n​d​ ​t​o​o​l​s​ ​t​o​ ​e​n​s​u​r​e​ ​t​h​a​t​ ​y​o​u​ ​c​a​n​ ​a​l​s​o​ ​m​a​k​e​ ​c​h​a​n​g​e​s​ ​t​o​ ​y​o​u​r​ ​w​e​b​s​i​t​e​.
+					 */
+					DESCRIPTION: string
+				}
 			}
 		}
 	}
@@ -117,6 +159,10 @@ export type TranslationFunctions = {
 		 * Contact us now
 		 */
 		CONTACT_BUTTON: () => LocalizedString
+		/**
+		 * Learn more
+		 */
+		LEARN_MORE: () => LocalizedString
 		HERO: {
 			/**
 			 * Stunning online presence, just one click away.
@@ -131,6 +177,44 @@ export type TranslationFunctions = {
 				 * We are a team of passionate designers and developers who are committed to creating websitesthat are not only visually appealing but also functional and easy to use.
 				 */
 				'1': () => LocalizedString
+			}
+		}
+		OUR_SERVICES: {
+			/**
+			 * Our Services
+			 */
+			TITLE: () => LocalizedString
+			SERVICES: {
+				'0': {
+					/**
+					 * Website Design
+					 */
+					TITLE: () => LocalizedString
+					/**
+					 * By discussing with the client and finding inspiration on the internet, we create detailed design concepts to meet the client's needs.
+					 */
+					DESCRIPTION: () => LocalizedString
+				}
+				'1': {
+					/**
+					 * Website Development
+					 */
+					TITLE: () => LocalizedString
+					/**
+					 * With our experience and knowledge, we create feature-rich websites that are lightning fast and on par with technical progress.
+					 */
+					DESCRIPTION: () => LocalizedString
+				}
+				'2': {
+					/**
+					 * Website Maintenance
+					 */
+					TITLE: () => LocalizedString
+					/**
+					 * We provide ongoing support and maintenance for your website and also provide training and tools to ensure that you can also make changes to your website.
+					 */
+					DESCRIPTION: () => LocalizedString
+				}
 			}
 		}
 	}

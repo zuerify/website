@@ -1,6 +1,8 @@
 <script lang="ts">
 	import LL from '$lib/i18n/i18n-svelte';
 	import { dark } from '$lib/theme';
+
+	let services = [0, 1, 2] as (0 | 1 | 2)[];
 </script>
 
 <section
@@ -243,56 +245,23 @@
 </section>
 
 <section class="flex h-screen w-full flex-col justify-center gap-10 lg:items-center">
-	<h1 class="text-3xl  md:text-4xl xl:text-5xl">Our Services</h1>
+	<h1 class="text-3xl  md:text-4xl xl:text-5xl">{$LL.MAIN.OUR_SERVICES.TITLE()}</h1>
 
 	<div class="flex w-full flex-col justify-around lg:flex-row lg:items-center">
-		<div class="rounded py-5 lg:h-[75%]  lg:max-w-[30%] lg:px-10">
-			<p class="font-normal text-slate-600">01</p>
-			<h3 class="mb-3 font-bold">Website design</h3>
+		{#each services as service}
+			<div class="rounded py-5 lg:h-[75%]  lg:max-w-[30%] lg:px-10">
+				<p class="font-normal text-slate-600">0{service + 1}</p>
+				<h3 class="mb-3 font-bold">{$LL.MAIN.OUR_SERVICES.SERVICES[service].TITLE()}</h3>
 
-			<p class="mb-7">
-				By discussing with the client and finding inspiration on the internet, we create detailed
-				design concepts to meet the client's needs.
-			</p>
+				<p class="mb-7">{$LL.MAIN.OUR_SERVICES.SERVICES[service].DESCRIPTION()}</p>
 
-			<button
-				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
-			>
-				Learn more
-			</button>
-		</div>
-
-		<div class="rounded py-5 lg:h-[75%] lg:max-w-[30%] lg:px-10">
-			<p class="font-normal text-slate-600">02</p>
-			<h3 class="mb-3 font-bold">Website development</h3>
-
-			<p class="mb-7">
-				With our experience and knowledge, we create feature-rich websites that are lightning fast
-				and on par with technical progress.
-			</p>
-
-			<button
-				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
-			>
-				Learn more
-			</button>
-		</div>
-
-		<div class="rounded py-5 lg:h-[75%] lg:max-w-[30%] lg:px-10">
-			<p class="font-normal text-slate-600">03</p>
-			<h3 class="mb-3 font-bold">Website maintenance</h3>
-
-			<p class="mb-7">
-				We provide ongoing support and maintenance for your website and also provide training and
-				tools to ensure that you can also make changes to your website.
-			</p>
-
-			<button
-				class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
-			>
-				Learn more
-			</button>
-		</div>
+				<button
+					class="float-left w-fit rounded-md bg-neutral-200 py-2 px-5 transition-shadow duration-300 hover:shadow-xl active:shadow-none dark:bg-slate-800"
+				>
+					{$LL.MAIN.LEARN_MORE()}
+				</button>
+			</div>
+		{/each}
 	</div>
 </section>
 

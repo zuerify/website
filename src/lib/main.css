@@ -107,4 +107,10 @@
 	.dark .activeLang > img {
 		@apply ring-[1.5px] ring-blue-100;
 	}
+
+	@supports (-webkit-touch-callout: none) {
+		main {
+			@apply mt-14;
+		}
+	}
 }
