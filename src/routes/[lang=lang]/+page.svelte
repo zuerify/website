@@ -1,6 +1,9 @@
 <script lang="ts">
 	import LL from '$lib/i18n/i18n-svelte';
 	import { dark } from '$lib/theme';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	let services = [0, 1, 2] as (0 | 1 | 2)[];
 </script>
@@ -266,25 +269,14 @@
 </section>
 
 <section class="flex h-screen w-full flex-col justify-center gap-10 lg:items-center">
-	<h1 class="text-3xl  md:text-4xl xl:text-5xl">{$LL.MAIN.OUR_WORK.TITLE()}</h1>
-
-	<p class="max-w-6xl">
-		Our web agency specializes in creating custom websites that are tailored to your specific needs
-		and goals. We begin by consulting with you to understand your business, target audience and
-		objectives for the website. We then create a visually stunning and user-friendly design and
-		layout that effectively communicates your brand and message. We use the latest technologies,
-		such as HTML, CSS, and JavaScript, to develop a fully responsive website that looks great on all
-		devices. We test the website on multiple browsers and devices to ensure it works properly. Once
-		the website is launched, it will be a powerful tool that will help you reach more customers and
-		grow your business.
-	</p>
+	<h1 class="mb-5 text-3xl  md:text-4xl xl:text-5xl">
+		{$LL.MAIN.OUR_WORK.TITLE()}
+	</h1>
 
 	<div class="flex gap-4 p-5">
-		<p>rollercoaster</p>
-		<p>rollercoaster</p>
-		<p>rollercoaster</p>
-		<p>rollercoaster</p>
-		<p>rollercoaster</p>
+		{#each data.works as work}
+			<div class="flex flex-col gap-4">{JSON.stringify(work)}</div>
+		{/each}
 	</div>
 </section>
 
