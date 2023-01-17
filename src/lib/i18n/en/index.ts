@@ -46,6 +46,10 @@ const en: BaseTranslation = {
 						'We provide ongoing support and maintenance for your website and also provide training and tools to ensure that you can also make changes to your website.'
 				}
 			]
+		},
+
+		OUR_WORK: {
+			TITLE: 'Our Work'
 		}
 	},
 

@@ -46,6 +46,10 @@ const de: Translation = {
 						'Wir bieten kontinuierlichen Support und Wartung für Ihre Website und stellen auch Schulungen und Tools zur Verfügung, damit Sie auch Änderungen an Ihrer Website vornehmen können.'
 				}
 			]
+		},
+
+		OUR_WORK: {
+			TITLE: 'Unsere Arbeiten'
 		}
 	},
 

@@ -6,11 +6,7 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess({
-		postcss: {
-			plugins: [import('autoprefixer'), import('tailwindcss')]
-		}
-	}),
+	preprocess: preprocess(),
 
 	kit: {
 		adapter: vercel({ edge: true, split: true }),
