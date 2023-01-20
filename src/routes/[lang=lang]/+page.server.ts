@@ -3,6 +3,6 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	return {
-		works: db.project.findMany()
+		works: await db.project.findMany()
 	};
 };
