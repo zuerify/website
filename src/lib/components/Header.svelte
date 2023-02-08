@@ -1,19 +1,24 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { setPreferredTheme, getPreferredDark } from '$lib/theme';
-	import font from '$lib/font/Aceh-ExtraBold.woff2';
-	import icons2 from '$lib/font/material-icons-rounded-all-400-normal.woff2';
-	import icons from '$lib/font/material-icons-rounded-all-400-normal.woff';
-	import EN from '$lib/images/en.webp';
-	import DE from '$lib/images/de.webp';
-	import { LL, setLocale, locale } from '$lib/i18n/i18n-svelte';
+	import { fly } from 'svelte/transition';
+
 	import { browser } from '$app/environment';
 	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
+
+	import { setPreferredTheme, getPreferredDark } from '$lib/theme';
+
+	import { LL, setLocale, locale } from '$lib/i18n/i18n-svelte';
 	import type { Locales } from '$lib/i18n/i18n-types';
 	import { locales } from '$lib/i18n/i18n-util';
 	import { loadLocaleAsync } from '$lib/i18n/i18n-util.async';
-	import { fly } from 'svelte/transition';
+
+	import EN from '$lib/images/en.webp';
+	import DE from '$lib/images/de.webp';
+
+	import font from '$lib/font/Aceh-ExtraBold.woff2';
+	import icons2 from '$lib/font/material-icons-rounded-all-400-normal.woff2';
+	import icons from '$lib/font/material-icons-rounded-all-400-normal.woff';
 
 	export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
 		const [, , ...rest] = url.pathname.split('/');

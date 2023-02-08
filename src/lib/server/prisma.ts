@@ -5,4 +5,4 @@ const db = new PrismaClient({
 	errorFormat: 'pretty'
 });
 
-export { db };
+export { db as dba };
